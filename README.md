@@ -1,6 +1,6 @@
 ## Aggiungere autenticazione ad un progetto in corso
 
-**0. comandi di setup**
+**01. Comandi di setup**
 
 - creazione file `.env`
 - installa composer
@@ -21,63 +21,63 @@ npm i
 php artisan key:generate
 ```
 
-**1. modifichiamo questi file/cartelle:**
+**02. Modifichiamo questi file/cartelle:**
 
 - (duplicazione) `routes/web.php` -> `routes/_web.php`
 - (duplicazione) `resources/scss/app.scss` -> `resources/scss/_app.scss`
 - (rinominare) `views` -> `_views`
 
-**2. creiamo questi file:**
+**03. Creiamo questi file:**
 
 - `resources\views/welcome.blade.php`
 - `resources\css/app.css`
 
-**3.**
+**04. Installiamo la dipendenza composer del pacchetto che si occupa dell'autenticazione**
 
 ```
 composer require laravel/breeze --dev
 ```
 
-**4.**
+**05. Installiamo alcuni file di supporto per breeze**
 
 ```
 php artisan breeze:install
 ```
 
-**5.**
+**06. Creiamo preset per togliere Tailwind e rimettere Bootstrap**
 
 ```
 composer require pacificdev/laravel_9_preset
 ```
 
-**6. cancelliamo la cartella: `resources\css`**
+**07. Cancelliamo la cartella:** `resources\css` (perchè utilizzeremo l'scss)
 
-**7.**
+**08. Per abilitare interfaccia per autenticazione e altro...**
 
 ```
 php artisan preset:ui bootstrap --auth
 ```
 
-**8.**
+**09. Refresh del database**
 
 ```
 php artisan migrate:refresh
 ```
 
-**9.**
+**10. Per sistemare alcune dipendenze del punto 08 e compilazione di NodeJS** (node)
 
 ```
 npm i
 ```
 
-**10.**
-
 ```
 npm run dev
 ```
 
-**11.**
+**11. Avvio del server**
 
 ```
 php artisan serve
 ```
+
+### BUONA FORTUNA!
